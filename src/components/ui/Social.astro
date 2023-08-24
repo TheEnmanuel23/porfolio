@@ -2,19 +2,19 @@
 import { Icon } from 'astro-icon';
 ---
 
-<a href="https://github.com/" target="_blank" rel="noopener" aria-label="github"
+<a href={`${import.meta.env.PUBLIC_GITHUB_PROFILE}`} target="_blank" rel="noopener" aria-label="github"
 	><Icon
 		class="h-8 hover:text-purple dark:hover:text-green md:h-12"
 		name="simple-icons:github"
 	/></a
 >
-<a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="linkedin"
+<a href={import.meta.env.PUBLIC_LINKEDIN_PROFILE}target="_blank" rel="noopener" aria-label="linkedin"
 	><Icon
 		class="h-8 hover:text-purple dark:hover:text-green md:h-12"
 		name="simple-icons:linkedin"
 	/></a
 >
-<a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="twitter"
+<a href={import.meta.env.PUBLIC_TWEETER_PROFILE}target="_blank" rel="noopener" aria-label="twitter"
 	><Icon
 		class="h-8 hover:text-purple dark:hover:text-green md:h-12"
 		name="simple-icons:twitter"
