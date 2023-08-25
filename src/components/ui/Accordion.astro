@@ -3,35 +3,35 @@ import { Icon } from 'astro-icon';
 const { title, icon } = Astro.props;
 ---
 
-<li class="border-text/30 relative border-b" x-data="{selected:null}">
+<li class="border-black dark:border-white relative border-b" x-data="{selected:null}">
 	<button
 		type="button"
-		class="w-full px-3 py-3 text-left"
+		class="w-full px-3 py-3 text-left group"
 		@click="selected !== 1 ? selected = 1 : selected = null"
 	>
 		<div class="flex items-center justify-between">
 			<h4
-				class="font-mono text-text/80 hover:text-text/95 flex items-start justify-center text-2xl"
+				class="font-mono text-black dark:text-white group-hover:text-purple dark:group-hover:text-green flex items-start justify-center text-2xl"
 			>
-				<Icon name={icon} class="mr-4 h-8 w-8" />
+				<Icon name={icon} class="mr-4 h-8 w-8 group-hover:text-purple dark:group-hover:text-green" />
 				{title}
 			</h4>
 
 			<Icon
 				name="ic:baseline-arrow-drop-down"
-				class="h-5 w-5"
+				class="h-5 w-5 text-black dark:text-white group-hover:text-purple dark:group-hover:text-green"
 				x-bind:style="selected ==1 ? 'rotate:'+' 180deg' : ''"
 			/>
 		</div>
 	</button>
 
 	<div
-		class="relative max-h-0 overflow-hidden transition-all duration-700"
+		class="relative max-h-0 overflow-hidden transition-all duration-400"
 		style=""
 		x-ref="container1"
 		x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''"
 	>
-		<div class="text-text/60 px-2 py-4">
+		<div class="text-black dark:text-white px-2 py-4">
 			<slot />
 		</div>
 	</div>

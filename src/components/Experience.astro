@@ -1,9 +1,17 @@
 ---
 import Accordion from './ui/Accordion.astro';
+import SectionTitle from './ui/SectionTitle.astro';
 ---
 
-<div>
-	<Accordion title="test 1" icon={'mdi:account-badge-outline'}>content</Accordion>
-	<Accordion title="test 2" icon={'mdi:account-badge-outline'}>content</Accordion>
-	<Accordion title="test 3" icon={'mdi:account-badge-outline'}>content</Accordion>
-</div>
+<section
+	data-testid="experience"
+	id="experience"
+	class="mb-10 flex flex-col items-center justify-center lg:mb-0 lg:h-screen"
+>
+    <SectionTitle title="Experience" />
+    <ul class="w-full">
+        <Accordion title="test 1" icon={'mdi:account-badge-outline'}>content</Accordion>
+        <Accordion title="test 2" icon={'mdi:account-badge-outline'}>content</Accordion>
+        <Accordion title="test 3" icon={'mdi:account-badge-outline'}>content</Accordion>
+    </ul>
+</section>
