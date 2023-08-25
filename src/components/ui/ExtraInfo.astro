@@ -1,0 +1,35 @@
+---
+import { Icon } from 'astro-icon'
+   export interface ExtraInfoItem {
+        description: string
+        link?: string
+     
+    }
+
+    interface Props {
+        title: string
+        items: ExtraInfoItem[],
+        type?: 'task' | 'contribution' | 'stack'
+    }
+
+    const {  title, items, type } = Astro.props
+
+    const iconNames = {
+        task: 'ant-design:build-filled',
+        contribution: 'mdi:check'
+    }
+
+    const icon = iconNames[type]
+
+    const ulClasses  = type === 'stack' ? 'flex flex-wrap gap-2' : ''
+    const liClasses  = type === 'stack' ? 'bg-purple dark:bg-green text-white dark:text-black py-1 px-2 rounded-full text-[0.5em] items-center justify-center h-7' : ''
+---
+<div class="flex flex-col gap-2">
+    <h5 class="font-bold text-sm">{title}</h5>
+    <ul class={`pl-4 ${ulClasses}`}>
+      {items.map(item => (<li class={`text-sm flex gap-2 ${liClasses}`}>
+            {icon &&  <div><Icon name={icon} class="h-4 text-purple dark:text-green" /></div>}
+            <span>{item.description}</span>
+        </li>))}
+    </ul>
+</div>

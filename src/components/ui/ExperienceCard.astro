@@ -1,0 +1,36 @@
+---
+import ExtraInfo, { ExtraInfoItem } from './ExtraInfo.astro'
+
+
+ interface Project {
+    name: string,
+    link?: string,
+    description?: string,
+    mainTasks: ExtraInfoItem[],
+    majorContributions: ExtraInfoItem[]
+    stack: string
+  }
+
+ interface Props {
+    role: string
+    projects: Project[]
+ }
+
+ const { role, projects = []} = Astro.props
+---
+<section>
+    <p class="text-sm">{role}</p>
+    {projects.map(project => (
+      <div class="py-2 px-4">
+          <div class="mb-2">
+            <h3><strong class="font-bold">Project:</strong> <a href={project.link} target="_blank" class="underline decoration-solid hover:text-purple dark:hover:text-green">{project.name}</a></h3>
+            <p class="text-sm italic">{project.description}</p>
+          </div>
+          <div class="flex flex-col gap-4 pl-8">
+            <ExtraInfo title="Main Tasks" items={project.mainTasks} type="task" />
+            <ExtraInfo title="Major contribution" items={project.majorContributions} type="contribution"  />
+            <ExtraInfo title="Stack" items={project.stack.split(',').map(item => ({ description: item}))} type="stack" />
+        </div>
+      </div>
+    ))}
+</section>

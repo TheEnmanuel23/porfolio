@@ -1,6 +1,8 @@
 ---
 import Accordion from './ui/Accordion.astro';
 import SectionTitle from './ui/SectionTitle.astro';
+import experiences from '../utils/experience'
+import ExperienceCard from './ui/ExperienceCard.astro';
 ---
 
 <section
@@ -10,8 +12,10 @@ import SectionTitle from './ui/SectionTitle.astro';
 >
     <SectionTitle title="Experience" />
     <ul class="w-full">
-        <Accordion title="test 1" icon={'mdi:account-badge-outline'}>content</Accordion>
-        <Accordion title="test 2" icon={'mdi:account-badge-outline'}>content</Accordion>
-        <Accordion title="test 3" icon={'mdi:account-badge-outline'}>content</Accordion>
+        {experiences.map(item => (
+            <Accordion title={item.company} icon={'mdi:account-badge-outline'}>
+                <ExperienceCard role={item.role} projects={item.projects} />
+            </Accordion>
+        ))}
     </ul>
 </section>
