@@ -1,0 +1,38 @@
+---
+import { Icon } from 'astro-icon';
+const { title, icon } = Astro.props;
+---
+
+<li class="border-text/30 relative border-b" x-data="{selected:null}">
+	<button
+		type="button"
+		class="w-full px-3 py-3 text-left"
+		@click="selected !== 1 ? selected = 1 : selected = null"
+	>
+		<div class="flex items-center justify-between">
+			<h4
+				class="font-mono text-text/80 hover:text-text/95 flex items-start justify-center text-2xl"
+			>
+				<Icon name={icon} class="mr-4 h-8 w-8" />
+				{title}
+			</h4>
+
+			<Icon
+				name="ic:baseline-arrow-drop-down"
+				class="h-5 w-5"
+				x-bind:style="selected ==1 ? 'rotate:'+' 180deg' : ''"
+			/>
+		</div>
+	</button>
+
+	<div
+		class="relative max-h-0 overflow-hidden transition-all duration-700"
+		style=""
+		x-ref="container1"
+		x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''"
+	>
+		<div class="text-text/60 px-2 py-4">
+			<slot />
+		</div>
+	</div>
+</li>
