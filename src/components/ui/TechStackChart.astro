@@ -1,16 +1,11 @@
 ---
-
+   
 
 ---
 
-<canvas id="chart"></canvas>
+<canvas id="chart" x-ref="text"></canvas>
 
 <script>
-   const storeTheme = localStorage.getItem('theme');
-   const isDarkTheme = storeTheme === 'dark'
-
-   console.log({ isDarkTheme})
-   
     import Chart from 'chart.js/auto'; 
     const data = {
         labels: [

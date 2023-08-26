@@ -47,20 +47,17 @@ const menuitems = [
 			<ul class="flex flex-col lg:flex-row lg:gap-3">
 				{
 					menuitems.map((item) => (
-						<>
-							<li>
-								<a
-									aria-label="navigation link"
-									href={item.path}
-									class="flex py-2 text-black hover:text-purple dark:text-white dark:hover:text-green lg:px-3"
-								>
-									{item.title}
-								</a>
-							</li>
-						</>
+						<li>
+							<a
+								aria-label="navigation link"
+								href={item.path}
+								class="flex py-2 text-black hover:text-purple dark:text-white dark:hover:text-green lg:px-3"
+							>
+								{item.title}
+							</a>
+						</li>
 					))
 				}
-				<li><ToggleTheme /></li>
 			</ul>
 		</MenuItems>
 	</Astronav>
