@@ -1,0 +1,82 @@
+---
+
+
+---
+
+<canvas id="chart"></canvas>
+
+<script>
+   const storeTheme = localStorage.getItem('theme');
+   const isDarkTheme = storeTheme === 'dark'
+
+   console.log({ isDarkTheme})
+   
+    import Chart from 'chart.js/auto'; 
+    const data = {
+        labels: [
+            'ReactJS',
+            'NodeJS',
+            'TypeScript',
+            'AWS',
+            'Svelte',
+            'GraphQL',
+            'Rest APIs',
+            'Redux',
+            'NoSQL',
+            'Relationals DB',
+            'Docker'
+        ],
+        datasets: [{
+            data: [90, 80, 70, 40, 60, 80, 90, 60, 70, 50, 60],
+            borderColor: '#A36EED',
+            pointBackgroundColor: '#A36EED',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#A36EED'
+        }
+    ]
+};
+    const canvas = document.getElementById('chart')
+
+    new Chart(
+    canvas,
+    {
+        type: 'radar',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: () => "",
+                        label: (context) => {
+                            const { label, formattedValue} = context
+                            return `${label} ${formattedValue}%`
+                        }
+                    }
+                },
+                decimation: {
+                    enabled: false
+                },
+                legend: {
+                    display: false,
+                },
+            },
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            },
+            scales: {
+                r: {
+                    suggestedMin: 10,
+                    suggestedMax: 100,
+                    ticks: {
+                        callback: () => ""
+                    },
+                }
+            }
+        },
+    }
+  );
+</script>

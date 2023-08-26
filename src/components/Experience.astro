@@ -3,6 +3,7 @@ import Accordion from './ui/Accordion.astro';
 import SectionTitle from './ui/SectionTitle.astro';
 import experiences from '../utils/experience'
 import ExperienceCard from './ui/ExperienceCard.astro';
+import TechStackChart from './ui/TechStackChart.astro';
 ---
 
 <section
@@ -22,5 +23,8 @@ import ExperienceCard from './ui/ExperienceCard.astro';
     <div class="mt-4 flex flex-col md:flex-row gap-1">
         <p class="text-xs font-bold italic text-purple dark:text-green">Note:</p>
         <p class="text-xs italic text-black dark:text-white">This section only reflects my experience as a <strong class="font-bold text-purple dark:text-green">Remove Developer</strong>. To know more you can <a href={`${import.meta.env.PUBLIC_CV}`} target="_blank" class="text-purple dark:text-green underline">download my full CV</a>. Thanks!</p>
+    </div>
+    <div class="mt-20 md:w-[500px] lg:w-[750px]">
+       <TechStackChart />
     </div>
 </section>
